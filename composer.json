@@ -1,0 +1,11 @@
+{
+    "name": "zhangchun/cjj",
+    "description": "test",
+    "authors": [
+        {
+            "name": "zhangchun",
+            "email": "zhangchun@wisder.com"
+        }
+    ],
+    "require": {}
+}
