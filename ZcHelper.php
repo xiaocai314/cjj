@@ -1,4 +1,5 @@
 <?php
+namespace zhangchun\cjj;
 class ZcHelper
 {
     //二分法
