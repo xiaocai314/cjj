@@ -1,11 +1,14 @@
 {
     "name": "zhangchun/cjj",
     "description": "test",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "zhangchun",
             "email": "zhangchun@wisder.com"
         }
     ],
-    "require": {}
+    "require": {
+        "zhangchun/cjj": "*"
+    }
 }
