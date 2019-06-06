@@ -10,5 +10,10 @@
     ],
     "require": {
         "zhangchun/cjj": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "zhangchun\\cjj\\": ""
+        }
     }
 }
