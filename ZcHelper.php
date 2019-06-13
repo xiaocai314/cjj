@@ -81,6 +81,7 @@ class ZcHelper
     //简单编码函数（与php_decode函数对应）
     public function php_encode($str)
     {
+        $s = '';
         if ( $str=='' && strlen( $str)>128) return false;
         for( $i=0; $i<strlen ($str); $i++){
             $c = ord($str[$i ]);
@@ -95,6 +96,8 @@ class ZcHelper
     //简单解码函数（与php_encode函数对应）
     public function php_decode($str)
     {
+        $s = '';
+        $word = '';
         if ( $str=='' && strlen($str )>128) return false;
         for( $i=0; $i<strlen ($str); $i++){
             $c  = ord($word);
