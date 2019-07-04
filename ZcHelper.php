@@ -9,9 +9,9 @@ class ZcHelper
             if ($array[$mid] ==  $k){
                 return $mid;
             }elseif ( $k < $array[$mid]){
-                return  bin_sch($array, $low,  $mid-1, $k);
+                return  $this->bin_sch($array, $low,  $mid-1, $k);
             }else{
-                return  bin_sch($array, $mid+ 1, $high, $k);
+                return  $this->bin_sch($array, $mid+ 1, $high, $k);
             }
         }
         return -1;
@@ -73,8 +73,8 @@ class ZcHelper
             else
                 $right_arr[] = $array[$i ];
         }
-        $left_arr = quick_sort($left_arr );
-        $right_arr = quick_sort( $right_arr);
+        $left_arr = $this->quick_sort($left_arr );
+        $right_arr = $this->quick_sort( $right_arr);
         return array_merge($left_arr , array($key), $right_arr);
     }
 
@@ -143,6 +143,41 @@ class ZcHelper
             }
         }
         return $enstr;
+    }
+
+    /**
+     * * 抽奖概率算法
+     *
+     * @param $proArr = array(
+     * array('id'=>1,'name'=>'特等奖','v'=>1),
+     * array('id'=>2,'name'=>'一等奖','v'=>5),
+     * array('id'=>3,'name'=>'二等奖','v'=>10),
+     * array('id'=>4,'name'=>'三等奖','v'=>12),
+     * array('id'=>5,'name'=>'四等奖','v'=>22),
+     * array('id'=>6,'name'=>'没中奖','v'=>50)
+     * );
+     * @return array
+     */
+    public static function getRand($proArr)
+    {
+        $result = array();
+        foreach ($proArr as $key => $val) {
+            $arr[$key] = $val['v'];
+        }
+        // 概率数组的总概率
+        $proSum = array_sum($arr);
+        asort($arr);
+        // 概率数组循环
+        foreach ($arr as $k => $v) {
+            $randNum = mt_rand(1, $proSum);
+            if ($randNum <= $v) {
+                $result = $proArr[$k];
+                break;
+            } else {
+                $proSum -= $v;
+            }
+        }
+        return $result;
     }
 }
 ?>
