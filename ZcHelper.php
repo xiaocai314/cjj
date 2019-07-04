@@ -3,22 +3,22 @@ namespace zhangchun\cjj;
 class ZcHelper
 {
     //二分法
-    public function bin_sch($array,  $low, $high, $k){
+    public static function bin_sch($array,  $low, $high, $k){
         if ( $low <= $high){
             $mid =  intval(($low+$high)/2 );
             if ($array[$mid] ==  $k){
                 return $mid;
             }elseif ( $k < $array[$mid]){
-                return  $this->bin_sch($array, $low,  $mid-1, $k);
+                return  self::bin_sch($array, $low,  $mid-1, $k);
             }else{
-                return  $this->bin_sch($array, $mid+ 1, $high, $k);
+                return  self::bin_sch($array, $mid+ 1, $high, $k);
             }
         }
         return -1;
     }
 
     //顺序查找（数组里查找某个元素）
-    public function  seq_sch($array, $n,  $k){
+    public static function  seq_sch($array, $n,  $k){
         $array[$n] =  $k;
         for($i=0;  $i<$n; $i++){
             if( $array[$i]==$k){
@@ -33,7 +33,7 @@ class ZcHelper
     }
 
     //线性表的删除（数组中实现）
-    public function delete_array_element($array , $i)
+    public static function delete_array_element($array , $i)
     {
         $len =  count($array);
         for ($j= $i; $j<$len; $j ++){
@@ -45,7 +45,7 @@ class ZcHelper
 
 
     //冒泡排序（数组排序）
-    public function bubble_sort( $array)
+    public static function bubble_sort( $array)
     {
         $count = count( $array);
         if ($count <= 0 ) return false;
@@ -61,7 +61,7 @@ class ZcHelper
         return $array;
     }
     //快速排序（数组排序）
-    public function quick_sort($array )
+    public  static function quick_sort($array )
     {
         if (count($array) <= 1) return  $array;
         $key = $array [0];
@@ -73,13 +73,13 @@ class ZcHelper
             else
                 $right_arr[] = $array[$i ];
         }
-        $left_arr = $this->quick_sort($left_arr );
-        $right_arr = $this->quick_sort( $right_arr);
+        $left_arr = self::quick_sort($left_arr );
+        $right_arr = self::quick_sort( $right_arr);
         return array_merge($left_arr , array($key), $right_arr);
     }
 
     //简单编码函数（与php_decode函数对应）
-    public function php_encode($str)
+    public static function php_encode($str)
     {
         $s = '';
         if ( $str=='' && strlen( $str)>128) return false;
@@ -94,7 +94,7 @@ class ZcHelper
     }
 
     //简单解码函数（与php_encode函数对应）
-    public function php_decode($str)
+    public static function php_decode($str)
     {
         $s = '';
         $word = '';
@@ -110,7 +110,7 @@ class ZcHelper
     }
 
     //简单加密函数（与php_decrypt函数对应）
-    public function php_encrypt($str)
+    public static function php_encrypt($str)
     {
         $enstr = '';
         $encrypt_key = 'abcdefghijklmnopqrstuvwxyz1234567890';
@@ -128,7 +128,7 @@ class ZcHelper
     }
 
     //简单解密函数（与php_encrypt函数对应）
-    public function php_decrypt($str)
+    public static function php_decrypt($str)
     {
         $enstr = '';
         $encrypt_key = 'abcdefghijklmnopqrstuvwxyz1234567890';
