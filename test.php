@@ -6,15 +6,6 @@
  * Time: 9:56
  */
 
-$test = array(
-      array('id'=>1,'name'=>'特等奖','v'=>1),
-      array('id'=>2,'name'=>'一等奖','v'=>5),
-      array('id'=>3,'name'=>'二等奖','v'=>10),
-      array('id'=>4,'name'=>'三等奖','v'=>12),
-      array('id'=>5,'name'=>'四等奖','v'=>22),
-      array('id'=>6,'name'=>'没中奖','v'=>50)
-);
-
 $array = array(
     array('id' => 1, 'pid' => 0, 'name' => '河北省'),
     array('id' => 2, 'pid' => 0, 'name' => '北京市'),
